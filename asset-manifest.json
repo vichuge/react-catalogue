@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/react-catalogue/static/js/main.b490097b.chunk.js",
+    "main.js.map": "/react-catalogue/static/js/main.b490097b.chunk.js.map",
+    "runtime-main.js": "/react-catalogue/static/js/runtime-main.805de883.js",
+    "runtime-main.js.map": "/react-catalogue/static/js/runtime-main.805de883.js.map",
+    "index.html": "/react-catalogue/index.html"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.805de883.js",
+    "static/js/main.b490097b.chunk.js"
+  ]
+}
