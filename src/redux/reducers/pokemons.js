@@ -10,7 +10,7 @@ const initialState = {
 const pokemons = (state = initialState, action) => {
   switch (action.type) {
     case ALL_POKEMONS:
-      return { ...state };
+      return action.payload;
     case GET_POKEMON:
       return { ...state };
     case ADD_POKEMON:

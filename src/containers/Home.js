@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Element from '../components/Element';
-import { getPokemons } from '../redux/actions';
+// import { getPokemons } from '../redux/actions';
 
-const Home = ({ getPokemons }) => {
-  const pokemons = getPokemons();
+const Home = ({ /* getPokemons, */ pokemons }) => {
   console.log(pokemons);
+  const list = pokemons.results;
   return (
     <>
       <div className="row">
@@ -15,24 +15,30 @@ const Home = ({ getPokemons }) => {
         </div>
       </div>
       <div className="row">
-        <Element
-          num="1"
-          name="bulbasaur"
-          img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif"
-        />
+        {list.map((pokemon, index) => (
+          <Element
+            key={pokemon.name}
+            num={index + 1}
+            name={pokemon.name}
+            img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${index + 1}.gif`}
+          />
+        ))}
       </div>
     </>
   );
 };
 
 Home.propTypes = {
-  // pokemons: PropTypes.arrayOf(PropTypes.oneOfType([
-  // PropTypes.number, PropTypes.string, PropTypes.object])).isRequired,
-  getPokemons: PropTypes.func.isRequired,
+  pokemons: PropTypes.objectOf(PropTypes.array).isRequired,
+  // getPokemons: PropTypes.func.isRequired,
 };
 
-const mapDistpachToProps = {
+const mapStateToProps = (state) => ({
+  pokemons: state.pokemons,
+});
+
+/* const mapDistpachToProps = {
   getPokemons,
-};
+}; */
 
-export default connect(null, mapDistpachToProps)(Home);
+export default connect(mapStateToProps/* , mapDistpachToProps */)(Home);
