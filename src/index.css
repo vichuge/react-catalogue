@@ -1,0 +1,34 @@
+* {
+  background-color: red;
+}
+
+#root {
+  padding: 1em;
+}
+
+.div-element {
+  margin: 1em;
+  padding: 3.5em 1em;
+  border: 1px solid gray;
+  border-radius: 0.3em;
+}
+
+.list-element {
+  width: 7em;
+}
+
+.list-img {
+  border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list-name {
+  font-size: small;
+  text-align: center;
+}
+
+.btn-element {
+  align-self: center;
+}
