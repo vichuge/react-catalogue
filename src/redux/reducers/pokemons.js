@@ -1,4 +1,4 @@
-import { ADD_POKEMON, GET_POKEMON, ALL_POKEMONS } from '../actionTypes';
+import { ALL_POKEMONS } from '../actionTypes';
 
 const initialState = {
   count: 0,
@@ -11,10 +11,6 @@ const pokemons = (state = initialState, action) => {
   switch (action.type) {
     case ALL_POKEMONS:
       return action.payload;
-    case GET_POKEMON:
-      return { ...state };
-    case ADD_POKEMON:
-      return { ...state };
     default:
       return { ...state };
   }

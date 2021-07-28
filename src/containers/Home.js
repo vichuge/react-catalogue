@@ -5,7 +5,6 @@ import Element from '../components/Element';
 // import { getPokemons } from '../redux/actions';
 
 const Home = ({ /* getPokemons, */ pokemons }) => {
-  console.log(pokemons);
   const list = pokemons.results;
   return (
     <>

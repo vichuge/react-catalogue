@@ -2,26 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getPokemon } from '../redux/actions';
+import { getProfile } from '../redux/actions';
 
-const Stats = ({ getPokemon }) => {
+const Stats = ({ profile, getProfile }) => {
   const { id } = useParams();
-  const pokemon = getPokemon(id);
-  console.log(pokemon);
+  let type1 = '';
+  let type2 = '';
+  let pokemon = '';
+  if (profile.status === false) {
+    pokemon = getProfile(id);
+  } else {
+    pokemon = profile;
+    type1 = pokemon.types[0].type.name;
+    type2 = pokemon.types[1].type.name;
+  }
   return (
     <>
-      <h2>Pokémon stats!</h2>
-      <p>{id}</p>
+      <h2>{pokemon.name}</h2>
+      <p>{pokemon.id}</p>
+      <p>{pokemon.height}</p>
+      <p>{pokemon.weight}</p>
+      <p>{type1}</p>
+      <p>{type2}</p>
     </>
   );
 };
 
 Stats.propTypes = {
-  getPokemon: PropTypes.func.isRequired,
+  getProfile: PropTypes.func.isRequired,
+  profile: PropTypes.objectOf(PropTypes.array).isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
 
 const mapDispatchToProps = {
-  getPokemon,
+  getProfile,
 };
 
-export default connect(null, mapDispatchToProps)(Stats);
+export default connect(mapStateToProps, mapDispatchToProps)(Stats);
