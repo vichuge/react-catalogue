@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import App from './components/App';
 import rootReducer from './redux/reducers';
 import './index.css';
-import { getPokemons } from './redux/actions';
+// import { getPokemons } from './redux/actions';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,7 +16,7 @@ const store = createStore(
   composeEnhancer(applyMiddleware(thunk)),
 );
 
-store.dispatch(getPokemons());
+// store.dispatch(getPokemons());
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

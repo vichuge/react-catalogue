@@ -2,13 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Element from '../components/Element';
-import { restartProfile } from '../redux/actions';
+import { restartProfile, getPokemons } from '../redux/actions';
 
-const Home = ({ profile, restartProfile, pokemons }) => {
+const Home = ({
+  profile,
+  restartProfile,
+  pokemons,
+  getPokemons,
+}) => {
   if (profile.status === true) {
     restartProfile();
   }
-  const list = pokemons.results;
+  let pkmns = '';
+  let list = [];
+  if (pokemons.status === false) {
+    pkmns = getPokemons();
+  } else {
+    pkmns = pokemons;
+    list = pkmns.results;
+  }
+  console.log(pkmns);
   return (
     <>
       <div className="row">
@@ -31,7 +44,9 @@ Home.propTypes = {
       PropTypes.array,
       PropTypes.object,
     ]),
+    status: PropTypes.bool,
   }).isRequired,
+  getPokemons: PropTypes.func.isRequired,
   restartProfile: PropTypes.func.isRequired,
   profile: PropTypes.shape({
     status: PropTypes.bool,
@@ -39,12 +54,13 @@ Home.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  pokemons: state.pokemons,
   profile: state.profile,
+  pokemons: state.pokemons,
 });
 
 const mapDistpachToProps = {
   restartProfile,
+  getPokemons,
 };
 
 export default connect(mapStateToProps, mapDistpachToProps)(Home);

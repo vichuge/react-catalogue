@@ -28,7 +28,7 @@ const Stats = ({ profile, getProfile }) => {
       <Link to="/react-catalogue/"><i className="fas fa-caret-left fa-5x tri-stats" /></Link>
       <div className="row justify-content-center">
         <div className="col-12 div-element-stats">
-          <img src={img} alt="abc" className="list-img img-fluid img-stats" />
+          <img src={img} alt={pokemon.name} className="list-img img-fluid img-stats" />
         </div>
         <div className="col-12 d-flex justify-content-around align-items-center content-1">
           <p className="text-name">{`#${pokemon.id} ${pokemon.name}`}</p>
