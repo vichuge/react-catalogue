@@ -9,8 +9,12 @@
 .div-element {
   margin: 1em;
   padding: 3.5em 1em;
-  border: 1px solid gray;
   border-radius: 0.3em;
+  background-color: white;
+}
+
+.div-element > * {
+  background-color: white;
 }
 
 .list-element {
@@ -27,6 +31,7 @@
 .list-name {
   font-size: small;
   text-align: center;
+  background-color: white;
 }
 
 .btn-element {
