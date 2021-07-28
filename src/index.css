@@ -11,6 +11,13 @@
   margin-top: 0.5em;
 }
 
+.nav-img {
+  width: 8em;
+  height: auto;
+  margin: 1em;
+  vertical-align: top;
+}
+
 .a-element {
   text-decoration: none;
 }
@@ -59,7 +66,6 @@
   background-color: #00eaed;
   border-radius: 50%;
   border: 0;
-  margin-right: 0.2em;
 }
 
 .tri-stats {
@@ -69,7 +75,7 @@
 .red,
 .green,
 .yellow {
-  margin-right: 1em;
+  margin-right: 0.5em;
   vertical-align: top;
 }
 

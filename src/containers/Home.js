@@ -24,7 +24,7 @@ const Home = ({
   console.log(pkmns);
   return (
     <>
-      <div className="row">
+      <div className="row justify-content-center">
         {list.map((pokemon, index) => (
           <Element
             key={pokemon.name}
