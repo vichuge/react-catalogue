@@ -5,18 +5,12 @@ import Element from '../components/Element';
 import { restartProfile } from '../redux/actions';
 
 const Home = ({ profile, restartProfile, pokemons }) => {
-  console.log('hi');
   if (profile.status === true) {
     restartProfile();
   }
   const list = pokemons.results;
   return (
     <>
-      <div className="row">
-        <div className="col-12">
-          <h2>Welcome to our page!</h2>
-        </div>
-      </div>
       <div className="row">
         {list.map((pokemon, index) => (
           <Element
@@ -32,9 +26,16 @@ const Home = ({ profile, restartProfile, pokemons }) => {
 };
 
 Home.propTypes = {
-  pokemons: PropTypes.objectOf(PropTypes.array).isRequired,
+  pokemons: PropTypes.shape({
+    results: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+    ]),
+  }).isRequired,
   restartProfile: PropTypes.func.isRequired,
-  profile: PropTypes.objectOf(PropTypes.array).isRequired,
+  profile: PropTypes.shape({
+    status: PropTypes.bool,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -17,7 +17,6 @@ const profile = (state = initialState, action) => {
     case GET_POKEMON:
       return setTrue(action.payload);
     case RESTART_PROFILE:
-      console.log('RESTART_PROFILE');
       return initialState;
     default:
       return state;
