@@ -14,10 +14,13 @@ const Stats = ({ profile, getProfile }) => {
   } else {
     pokemon = profile;
     type1 = pokemon.types[0].type.name;
-    type2 = pokemon.types[1].type.name;
+    if (pokemon.types[1]) {
+      type2 = pokemon.types[1].type.name;
+    }
   }
   return (
     <>
+      <h1>{`GET id=${id}`}</h1>
       <h2>{pokemon.name}</h2>
       <p>{pokemon.id}</p>
       <p>{pokemon.height}</p>

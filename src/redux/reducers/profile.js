@@ -1,4 +1,4 @@
-import { GET_POKEMON } from '../actionTypes';
+import { GET_POKEMON, RESTART_PROFILE } from '../actionTypes';
 
 const initialState = {
   status: false,
@@ -16,6 +16,9 @@ const profile = (state = initialState, action) => {
   switch (action.type) {
     case GET_POKEMON:
       return setTrue(action.payload);
+    case RESTART_PROFILE:
+      console.log('RESTART_PROFILE');
+      return initialState;
     default:
       return state;
   }

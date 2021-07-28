@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Element from '../components/Element';
-// import { getPokemons } from '../redux/actions';
+import { restartProfile } from '../redux/actions';
 
-const Home = ({ /* getPokemons, */ pokemons }) => {
+const Home = ({ profile, restartProfile, pokemons }) => {
+  console.log('hi');
+  if (profile.status === true) {
+    restartProfile();
+  }
   const list = pokemons.results;
   return (
     <>
@@ -29,15 +33,17 @@ const Home = ({ /* getPokemons, */ pokemons }) => {
 
 Home.propTypes = {
   pokemons: PropTypes.objectOf(PropTypes.array).isRequired,
-  // getPokemons: PropTypes.func.isRequired,
+  restartProfile: PropTypes.func.isRequired,
+  profile: PropTypes.objectOf(PropTypes.array).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   pokemons: state.pokemons,
+  profile: state.profile,
 });
 
-/* const mapDistpachToProps = {
-  getPokemons,
-}; */
+const mapDistpachToProps = {
+  restartProfile,
+};
 
-export default connect(mapStateToProps/* , mapDistpachToProps */)(Home);
+export default connect(mapStateToProps, mapDistpachToProps)(Home);

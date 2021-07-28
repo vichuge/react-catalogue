@@ -1,7 +1,8 @@
-import { ALL_POKEMONS, GET_POKEMON } from '../actionTypes';
+import { ALL_POKEMONS, GET_POKEMON, RESTART_PROFILE } from '../actionTypes';
 
 export const allPokemons = (all) => ({ type: ALL_POKEMONS, payload: all });
 export const getPokemon = (data) => ({ type: GET_POKEMON, payload: data });
+export const restartProfile = () => ({ type: RESTART_PROFILE });
 
 export const getPokemons = () => async (dispatch) => {
   try {
