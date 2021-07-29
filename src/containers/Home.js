@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Element from '../components/Element';
-import { restartProfile, getPokemons, changeFilter } from '../redux/actions';
+import {
+  restartProfile,
+  getPokemons,
+  changeFilter,
+  pkmnChangeStatus,
+} from '../redux/actions';
 import CategoryFilter from '../components/CategoryFilter';
 
 const Home = ({
@@ -14,7 +19,8 @@ const Home = ({
   changeFilter,
 }) => {
   const changeF = (type) => {
-    changeFilter(type);
+    getPokemons(type);
+    console.log(changeFilter);
   };
   console.log(filter);
   if (profile.status === true) {
@@ -22,40 +28,29 @@ const Home = ({
   }
   let list = [];
   if (pokemons.status === false) {
-    getPokemons();
+    getPokemons(profile);
   } else {
     list = pokemons.results;
     console.log(list);
-    console.log(list[0]);
-    console.log(list[0].type1);
-    if (filter !== 'All') {
-      // pkmns.results.map((pkmn) => (if (pkmn.type) { list.push(pkmn) }));
-      console.log('Enter diff All');
-      /* pokemons.results.map((pk) => (
-        if (pk.types)
-      )); */
-      /* for (let i = 0; i < list.length; i += 1) {
-        console.log(pokemons.results[i].type1);
-        if (filter === pokemons.results[i].type1 || filter === pokemons.results[i].type2) {
-          list.push(pokemons.results[i]);
-        }
-      } */
-    }
+    console.log(list[0].url.split('/')[6]);
+    console.log(list[0].url.substring(list[0].url.lastIndexOf('/')));
+    console.log(list[1].url);
+    console.log(list[1].url.lastIndexOf('/'));
   }
   return (
     <>
       <div className="row justify-content-center">
-        <div className="col-4">
+        <div className="col-12 col-sm-6">
           <CategoryFilter categoryFilterChange={changeF} />
         </div>
       </div>
       <div className="row justify-content-center">
-        {list.map((pokemon, index) => (
+        {list.map((pokemon) => (
           <Element
             key={pokemon.name}
-            num={index + 1}
+            num={pokemon.url.split('/')[6]}
             name={pokemon.name}
-            img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${index + 1}.gif`}
+            img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.url.split('/')[6]}.gif`}
           />
         ))}
       </div>
@@ -90,6 +85,7 @@ const mapDistpachToProps = {
   restartProfile,
   getPokemons,
   changeFilter,
+  pkmnChangeStatus,
 };
 
 export default connect(mapStateToProps, mapDistpachToProps)(Home);

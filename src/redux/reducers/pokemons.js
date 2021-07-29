@@ -1,4 +1,4 @@
-import { ALL_POKEMONS } from '../actionTypes';
+import { ALL_POKEMONS, CHANGE_STATUS } from '../actionTypes';
 
 const initialState = {
   count: 0,
@@ -20,6 +20,9 @@ const pokemons = (state = initialState, action) => {
   switch (action.type) {
     case ALL_POKEMONS:
       return setTrue(action.payload);
+    case CHANGE_STATUS:
+      console.log('CHANGE_STATUS');
+      return initialState;
     default:
       return { ...state };
   }

@@ -4,3 +4,4 @@ export const ADD_POKEMON = 'ADD_POKEMON';
 export const ALL_POKEMONS = 'ALL_POKEMONS';
 export const RESTART_PROFILE = 'RESTART_PROFILE';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const CHANGE_STATUS = 'CHANGE_STATUS';

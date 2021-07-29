@@ -8,7 +8,7 @@ const CategoryFilter = ({ categoryFilterChange }) => {
   };
   return (
     <select className="form-control mt-2" onChange={handleChange}>
-      <option key="default" value="All">All books</option>
+      <option key="default" value="All">All gen</option>
       {
         categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)
       }
