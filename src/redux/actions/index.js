@@ -12,8 +12,6 @@ export const restartProfile = () => ({ type: RESTART_PROFILE });
 
 export const getPokemons = (profile) => async (dispatch) => {
   try {
-    console.log('getpokemons');
-    console.log(profile);
     let url = '';
     switch (profile) {
       case 'All':

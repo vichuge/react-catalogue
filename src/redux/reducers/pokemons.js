@@ -21,7 +21,6 @@ const pokemons = (state = initialState, action) => {
     case ALL_POKEMONS:
       return setTrue(action.payload);
     case CHANGE_STATUS:
-      console.log('CHANGE_STATUS');
       return initialState;
     default:
       return { ...state };

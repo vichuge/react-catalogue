@@ -12,7 +12,7 @@ const Element = ({ num, name, img }) => (
 );
 
 Element.propTypes = {
-  num: PropTypes.number.isRequired,
+  num: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
 };

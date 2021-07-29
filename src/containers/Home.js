@@ -15,14 +15,10 @@ const Home = ({
   restartProfile,
   pokemons,
   getPokemons,
-  filter,
-  changeFilter,
 }) => {
   const changeF = (type) => {
     getPokemons(type);
-    console.log(changeFilter);
   };
-  console.log(filter);
   if (profile.status === true) {
     restartProfile();
   }
@@ -31,11 +27,6 @@ const Home = ({
     getPokemons(profile);
   } else {
     list = pokemons.results;
-    console.log(list);
-    console.log(list[0].url.split('/')[6]);
-    console.log(list[0].url.substring(list[0].url.lastIndexOf('/')));
-    console.log(list[1].url);
-    console.log(list[1].url.lastIndexOf('/'));
   }
   return (
     <>
@@ -71,8 +62,6 @@ Home.propTypes = {
   profile: PropTypes.shape({
     status: PropTypes.bool,
   }).isRequired,
-  filter: PropTypes.string.isRequired,
-  changeFilter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
