@@ -16,6 +16,8 @@ const Stats = ({ profile, getProfile }) => {
     type1 = pokemon.types[0].type.name;
     if (pokemon.types[1]) {
       type2 = pokemon.types[1].type.name;
+    } else {
+      type2 = '--';
     }
   }
   let height = pokemon.height * 0.1;

@@ -19,8 +19,6 @@ const setTrue = (obj1) => {
 const pokemons = (state = initialState, action) => {
   switch (action.type) {
     case ALL_POKEMONS:
-      console.log('ALL_POKEMON');
-      console.log(action.payload);
       return setTrue(action.payload);
     default:
       return { ...state };

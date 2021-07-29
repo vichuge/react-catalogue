@@ -132,3 +132,7 @@
   margin: 0;
   border-radius: 0.5em;
 }
+
+.form-control {
+  font-size: 12px;
+}
