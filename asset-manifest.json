@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/react-catalogue/static/css/main.459434f4.chunk.css",
-    "main.js": "/react-catalogue/static/js/main.d4d7e5b7.chunk.js",
-    "main.js.map": "/react-catalogue/static/js/main.d4d7e5b7.chunk.js.map",
+    "main.js": "/react-catalogue/static/js/main.4f2334bf.chunk.js",
+    "main.js.map": "/react-catalogue/static/js/main.4f2334bf.chunk.js.map",
     "runtime-main.js": "/react-catalogue/static/js/runtime-main.805de883.js",
     "runtime-main.js.map": "/react-catalogue/static/js/runtime-main.805de883.js.map",
-    "static/js/2.25a43dc7.chunk.js": "/react-catalogue/static/js/2.25a43dc7.chunk.js",
-    "static/js/2.25a43dc7.chunk.js.map": "/react-catalogue/static/js/2.25a43dc7.chunk.js.map",
+    "static/js/2.d805e3fd.chunk.js": "/react-catalogue/static/js/2.d805e3fd.chunk.js",
+    "static/js/2.d805e3fd.chunk.js.map": "/react-catalogue/static/js/2.d805e3fd.chunk.js.map",
     "index.html": "/react-catalogue/index.html",
     "static/css/main.459434f4.chunk.css.map": "/react-catalogue/static/css/main.459434f4.chunk.css.map",
-    "static/js/2.25a43dc7.chunk.js.LICENSE.txt": "/react-catalogue/static/js/2.25a43dc7.chunk.js.LICENSE.txt",
+    "static/js/2.d805e3fd.chunk.js.LICENSE.txt": "/react-catalogue/static/js/2.d805e3fd.chunk.js.LICENSE.txt",
     "static/media/logo.beda6a95.png": "/react-catalogue/static/media/logo.beda6a95.png"
   },
   "entrypoints": [
     "static/js/runtime-main.805de883.js",
-    "static/js/2.25a43dc7.chunk.js",
+    "static/js/2.d805e3fd.chunk.js",
     "static/css/main.459434f4.chunk.css",
-    "static/js/main.d4d7e5b7.chunk.js"
+    "static/js/main.4f2334bf.chunk.js"
   ]
 }
