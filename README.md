@@ -3,7 +3,6 @@
 <p align="center">A pokémon list made with React js</p>
 
 ![screenshot](/screenshots/Screenshot_2.png)
-![screenshot](/screenshots/Screenshot_1.jpg)
 
 ## Live demo
 
