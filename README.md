@@ -1,4 +1,4 @@
-<h3 align="center">React Pokémon Catalogue</h3>
+<h3 align="center">React Pokémon Catalogue (Catalogue of recipes)</h3>
 
 <p align="center">A pokémon list made with React js</p>
 
