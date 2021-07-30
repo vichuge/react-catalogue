@@ -1,6 +1,9 @@
 * {
-  background-color: #fe0065;
   font-family: "Press Start 2P", cursive;
+}
+
+body {
+  background-color: #b41314;
 }
 
 #root {
@@ -52,7 +55,6 @@
   text-align: center;
   background-color: white;
   color: black;
-  margin-bottom: 0;
 }
 
 .btn-element {
@@ -104,7 +106,7 @@
 }
 
 .div-element-stats {
-  padding: 3.5em 1em;
+  padding: 2.5em 1em;
   border-radius: 0.3em;
   background-color: #99cb98;
   max-width: 15em;
@@ -116,7 +118,7 @@
 }
 
 .content-1 {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 .text-name {
@@ -128,7 +130,7 @@
 
 .text-types {
   background-color: #9d9d9d;
-  padding: 2.5em;
+  padding: 1.5em;
   margin: 0;
   border-radius: 0.5em;
 }

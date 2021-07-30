@@ -9,6 +9,7 @@ import {
   pkmnChangeStatus,
 } from '../redux/actions';
 import CategoryFilter from '../components/CategoryFilter';
+import Navbar from '../components/Navbar';
 
 const Home = ({
   profile,
@@ -30,8 +31,9 @@ const Home = ({
   }
   return (
     <>
+      <Navbar />
       <div className="row justify-content-center">
-        <div className="col-12 col-sm-6">
+        <div className="col-11 col-sm-6">
           <CategoryFilter categoryFilterChange={changeF} />
         </div>
       </div>

@@ -4,13 +4,13 @@ import logo from '../imgs/logo.png';
 
 const Navbar = () => (
   <nav className="navbar row">
-    <div className="col-12 col-sm-8">
+    <div className="col-12 col-xs-6 col-sm-8">
       <Link to="/react-catalogue/"><i className="far fa-circle fa-5x big-circle" /></Link>
       <i className="fas fa-circle red" />
       <i className="fas fa-circle green" />
       <i className="fas fa-circle yellow" />
     </div>
-    <div className="col-12 col-sm-4 d-flex justify-content-start justify-content-md-end">
+    <div className="col-12 col-xs-6 col-sm-4 d-flex justify-content-start justify-content-md-end">
       <img src={logo} alt="pokedex" className="nav-img" />
     </div>
     <div className="col-12">
