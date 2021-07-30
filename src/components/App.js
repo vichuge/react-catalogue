@@ -7,8 +7,8 @@ const App = () => (
   <>
     <main>
       <Switch>
-        <Route path={`${process.env.PUBLIC_URL}/`} component={Home} exact />
-        <Route path={`${process.env.PUBLIC_URL}/pokemonid/:id`} component={Stats} />
+        <Route path="/" component={Home} exact />
+        <Route path="/pokemonid/:id" component={Stats} />
       </Switch>
     </main>
   </>

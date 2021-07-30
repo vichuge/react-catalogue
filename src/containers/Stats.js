@@ -27,7 +27,7 @@ const Stats = ({ profile, getProfile }) => {
   const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif`;
   return (
     <>
-      <Link to="/react-catalogue/"><i className="fas fa-caret-left fa-4x tri-stats" /></Link>
+      <Link to="/"><i className="fas fa-caret-left fa-4x tri-stats" /></Link>
       <div className="row justify-content-center">
         <div className="col-12 div-element-stats">
           <img src={img} alt={pokemon.name} className="list-img img-fluid img-stats" />

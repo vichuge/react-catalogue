@@ -18,7 +18,7 @@ const store = createStore(
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </Provider>,
