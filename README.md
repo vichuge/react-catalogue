@@ -9,6 +9,10 @@
 
 [Live demo here!](https://vichuge.github.io/react-catalogue/)
 
+## Videos presentation
+
+<script src="https://gist.github.com/vichuge/9bbb172a224718d6dc61953590f973ab.js"></script>
+
 ## Built With
 
 - JavaScript
