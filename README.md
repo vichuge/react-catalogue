@@ -34,6 +34,7 @@
 - cd react-catalogue
 - npm install
 - npm start
+- npm test (if you want to test the project)
 
 ## Author
 
