@@ -5,16 +5,27 @@ const initialState = {
   status: false,
 };
 
-it('return profile data', () => {
-  const p = profile(initialState, {
-    type: GET_POKEMON,
-    payload: {
-      name: 'bulbasaur',
-      type: 'grass',
-    },
+describe('profile data', () => {
+  it('return profile data', () => {
+    const p = profile(initialState, {
+      type: GET_POKEMON,
+      payload: {
+        name: 'bulbasaur',
+        type: 'grass',
+      },
+    });
+    expect(p).toStrictEqual({ name: 'bulbasaur', status: true, type: 'grass' });
   });
-  expect(p).toStrictEqual({ name: 'bulbasaur', status: true, type: 'grass' });
-  expect(p).not.toStrictEqual({ name: 'bulbasaur', status: false, type: 'grass' });
+  it('return profile data', () => {
+    const p = profile(initialState, {
+      type: GET_POKEMON,
+      payload: {
+        name: 'bulbasaur',
+        type: 'grass',
+      },
+    });
+    expect(p).not.toStrictEqual({ name: 'bulbasaur', status: false, type: 'grass' });
+  });
 });
 
 it('restart profile', () => {
