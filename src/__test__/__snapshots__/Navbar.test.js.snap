@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`return Navbar component 1`] = `
+<nav
+  className="navbar row"
+>
+  <div
+    className="col-12 col-xs-6 col-sm-8"
+  >
+    <i
+      className="far fa-circle fa-5x big-circle"
+    />
+    <i
+      className="fas fa-circle red"
+    />
+    <i
+      className="fas fa-circle green"
+    />
+    <i
+      className="fas fa-circle yellow"
+    />
+  </div>
+  <div
+    className="col-12 col-xs-6 col-sm-4 d-flex justify-content-start justify-content-md-end"
+  >
+    <img
+      alt="pokedex"
+      className="nav-img"
+      src="logo.png"
+    />
+  </div>
+  <div
+    className="col-12"
+  >
+    <hr
+      className="hr"
+    />
+  </div>
+</nav>
+`;

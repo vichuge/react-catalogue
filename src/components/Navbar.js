@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 
 const Navbar = () => (
   <nav className="navbar row">
     <div className="col-12 col-xs-6 col-sm-8">
-      <Link to="/"><i className="far fa-circle fa-5x big-circle" /></Link>
+      <i className="far fa-circle fa-5x big-circle" />
       <i className="fas fa-circle red" />
       <i className="fas fa-circle green" />
       <i className="fas fa-circle yellow" />
