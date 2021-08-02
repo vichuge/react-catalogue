@@ -9,6 +9,9 @@ const Stats = ({ profile, getProfile }) => {
   let type1 = '';
   let type2 = '';
   let pokemon = '';
+  let height = '';
+  let weight = '';
+  let img = '';
   if (profile.status === false) {
     pokemon = getProfile(id);
   } else {
@@ -19,12 +22,12 @@ const Stats = ({ profile, getProfile }) => {
     } else {
       type2 = '--';
     }
+    height = pokemon.height * 0.1;
+    height = Math.round(height * 10) / 10;
+    weight = pokemon.weight * 0.1;
+    weight = Math.round(weight * 10) / 10;
+    img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif`;
   }
-  let height = pokemon.height * 0.1;
-  height = Math.round(height * 10) / 10;
-  let weight = pokemon.weight * 0.1;
-  weight = Math.round(weight * 10) / 10;
-  const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif`;
   return (
     <>
       <Link to="/"><i className="fas fa-caret-left fa-4x tri-stats" /></Link>

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Element from '../components/Element';
 import {
-  restartProfile,
   getPokemons,
   changeFilter,
   pkmnChangeStatus,
@@ -13,16 +12,12 @@ import Navbar from '../components/Navbar';
 
 const Home = ({
   profile,
-  restartProfile,
   pokemons,
   getPokemons,
 }) => {
   const changeF = (type) => {
     getPokemons(type);
   };
-  if (profile.status === true) {
-    restartProfile();
-  }
   let list = [];
   if (pokemons.status === false) {
     getPokemons(profile);
@@ -60,7 +55,6 @@ Home.propTypes = {
     status: PropTypes.bool,
   }).isRequired,
   getPokemons: PropTypes.func.isRequired,
-  restartProfile: PropTypes.func.isRequired,
   profile: PropTypes.shape({
     status: PropTypes.bool,
   }).isRequired,
@@ -73,7 +67,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDistpachToProps = {
-  restartProfile,
   getPokemons,
   changeFilter,
   pkmnChangeStatus,
