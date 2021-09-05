@@ -2,7 +2,7 @@
 
 <p align="center">A pokémon list made with React js. This includes pokemon list, profile for each pokemon when you click it and filter the pokemons according to generation.</p>
 
-![screenshot](/screenshots/Screenshot_2.png)
+![screenshot](/screenshots/react-catalogue.gif)
 ![screenshot](/screenshots/Screenshot_1.png)
 
 ## Live demo
