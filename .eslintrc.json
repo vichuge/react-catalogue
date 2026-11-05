@@ -9,16 +9,26 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
   },
   "extends": [
     "airbnb",
+    "airbnb/hooks",
     "plugin:react/recommended"
   ],
   "plugins": [
     "react"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "react/jsx-filename-extension": [
       "warn",
@@ -30,12 +40,17 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "default-param-last": "off",
+    "react/require-default-props": ["error", { "functions": "defaultArguments" }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["src/__test__/**", "src/setupTests.js"] }]
   },
   "ignorePatterns": [
     "dist/",
-    "build/"
+    "build/",
+    "node_modules/"
   ]
 }

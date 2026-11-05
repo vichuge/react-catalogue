@@ -1,58 +1,38 @@
 import {
-  ALL_POKEMONS,
-  GET_POKEMON,
-  RESTART_PROFILE,
+  POKEDEX_REQUEST,
+  POKEDEX_SUCCESS,
+  POKEDEX_FAILURE,
+  PROFILE_REQUEST,
+  PROFILE_SUCCESS,
+  PROFILE_FAILURE,
   CHANGE_FILTER,
-  CHANGE_STATUS,
+  RESET_FILTER,
 } from '../actionTypes';
+import { fetchPokedexIndex, fetchPokemonDetail } from '../../api/pokeapi';
 
-export const allPokemons = (all) => ({ type: ALL_POKEMONS, payload: all });
-export const getPokemon = (data) => ({ type: GET_POKEMON, payload: data });
-export const restartProfile = () => ({ type: RESTART_PROFILE });
+export const changeFilter = (changes) => ({ type: CHANGE_FILTER, payload: changes });
+export const resetFilter = () => ({ type: RESET_FILTER });
 
-export const getPokemons = (profile) => async (dispatch) => {
+export const loadPokedex = () => async (dispatch, getState) => {
+  const { status } = getState().pokemons;
+  if (status === 'loading' || status === 'succeeded') return;
+  dispatch({ type: POKEDEX_REQUEST });
   try {
-    let url = '';
-    switch (profile) {
-      case 'All':
-        url = 'https://pokeapi.co/api/v2/pokemon?limit=386';
-        break;
-      case 'gen-1':
-        url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
-        break;
-      case 'gen-2':
-        url = 'https://pokeapi.co/api/v2/pokemon/?limit=100&offset=151';
-        break;
-      case 'gen-3':
-        url = 'https://pokeapi.co/api/v2/pokemon/?limit=135&offset=251';
-        break;
-      default:
-        url = 'https://pokeapi.co/api/v2/pokemon?limit=386';
-    }
-    const response = await fetch(url);
-    const data = await response.json();
-    dispatch(allPokemons(data));
-    return true;
+    const items = await fetchPokedexIndex();
+    dispatch({ type: POKEDEX_SUCCESS, payload: items });
   } catch (error) {
-    return error;
+    dispatch({ type: POKEDEX_FAILURE, payload: error.message });
   }
 };
 
-export const getProfile = (id) => async (dispatch) => {
+export const loadProfile = (id) => async (dispatch, getState) => {
+  const entry = getState().profile[id];
+  if (entry && (entry.status === 'loading' || entry.status === 'succeeded')) return;
+  dispatch({ type: PROFILE_REQUEST, payload: { id } });
   try {
-    const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-    const response = await fetch(url);
-    const data = await response.json();
-    dispatch(getPokemon(data));
-    return true;
+    const data = await fetchPokemonDetail(id);
+    dispatch({ type: PROFILE_SUCCESS, payload: { id, data } });
   } catch (error) {
-    return error;
+    dispatch({ type: PROFILE_FAILURE, payload: { id, error: error.message } });
   }
 };
-
-export const changeFilter = (category) => ({
-  type: CHANGE_FILTER,
-  payload: category,
-});
-
-export const pkmnChangeStatus = () => ({ type: CHANGE_STATUS });
