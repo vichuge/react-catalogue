@@ -49,7 +49,11 @@
 
 - `npm test` runs the test suite
 - `npm run lint` runs ESLint and Stylelint
-- `npm run deploy` builds and publishes to GitHub Pages
+- `npm run deploy` builds and publishes to GitHub Pages by hand (rarely needed, see below)
+
+### Deployment
+
+Every merge into `development` triggers the **Deploy to GitHub Pages** workflow: it runs the tests, builds the app and publishes it to the `gh-pages` branch, which GitHub Pages serves at the live demo URL. It can also be run manually from the *Actions* tab.
 
 ## Author
 
