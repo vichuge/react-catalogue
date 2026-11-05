@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "plugins": [
+    "stylelint-csstree-validator"
+  ],
+  "rules": {
+    "csstree/validator": true,
+    "no-descending-specificity": null,
+    "declaration-block-single-line-max-declarations": null,
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9-]*(__[a-z0-9-]+)?(--[a-z0-9-]+)?$",
+      {
+        "message": "Use BEM-style kebab-case class names"
+      }
+    ]
+  },
+  "ignoreFiles": [
+    "build/**",
+    "dist/**",
+    "node_modules/**",
+    "**/*.js",
+    "**/*.jsx"
+  ]
+}

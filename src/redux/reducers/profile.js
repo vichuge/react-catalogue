@@ -1,23 +1,14 @@
-import { GET_POKEMON, RESTART_PROFILE } from '../actionTypes';
+import { PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_FAILURE } from '../actionTypes';
 
-const initialState = {
-  status: false,
-};
-
-const setTrue = (obj1) => {
-  const t = {
-    ...obj1,
-    status: true,
-  };
-  return t;
-};
-
-const profile = (state = initialState, action) => {
+// Detail data cached by Pokémon id, so going back and forth never refetches.
+const profile = (state = {}, action) => {
   switch (action.type) {
-    case GET_POKEMON:
-      return setTrue(action.payload);
-    case RESTART_PROFILE:
-      return initialState;
+    case PROFILE_REQUEST:
+      return { ...state, [action.payload.id]: { status: 'loading', data: null, error: null } };
+    case PROFILE_SUCCESS:
+      return { ...state, [action.payload.id]: { status: 'succeeded', data: action.payload.data, error: null } };
+    case PROFILE_FAILURE:
+      return { ...state, [action.payload.id]: { status: 'failed', data: null, error: action.payload.error } };
     default:
       return state;
   }

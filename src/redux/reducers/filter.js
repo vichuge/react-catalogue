@@ -1,9 +1,17 @@
-import { CHANGE_FILTER } from '../actionTypes';
+import { CHANGE_FILTER, RESET_FILTER } from '../actionTypes';
 
-const filter = (state = 'All', action) => {
+export const initialState = {
+  generation: 'All',
+  type: 'All',
+  query: '',
+};
+
+const filter = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_FILTER:
-      return action.payload;
+      return { ...state, ...action.payload };
+    case RESET_FILTER:
+      return initialState;
     default:
       return state;
   }

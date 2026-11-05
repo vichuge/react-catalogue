@@ -1,26 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
 import App from './components/App';
-import rootReducer from './redux/reducers';
+import setupStore from './redux/store';
+import routerFuture from './routerFuture';
 import './index.css';
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = setupStore();
 
-const store = createStore(
-  rootReducer,
-  composeEnhancer(applyMiddleware(thunk)),
-);
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(
-  <Provider store={store}>
-    <HashRouter basename={process.env.PUBLIC_URL}>
-      <App />
-    </HashRouter>
-  </Provider>,
-  rootElement,
+createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <HashRouter future={routerFuture}>
+        <App />
+      </HashRouter>
+    </Provider>
+  </React.StrictMode>,
 );

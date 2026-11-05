@@ -1,29 +1,21 @@
-import { ALL_POKEMONS, CHANGE_STATUS } from '../actionTypes';
+import { POKEDEX_REQUEST, POKEDEX_SUCCESS, POKEDEX_FAILURE } from '../actionTypes';
 
-const initialState = {
-  count: 0,
-  next: 'https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20',
-  previous: null,
-  results: [],
-  status: false,
-};
-
-const setTrue = (obj1) => {
-  const t = {
-    ...obj1,
-    status: true,
-  };
-  return t;
+export const initialState = {
+  status: 'idle',
+  items: [],
+  error: null,
 };
 
 const pokemons = (state = initialState, action) => {
   switch (action.type) {
-    case ALL_POKEMONS:
-      return setTrue(action.payload);
-    case CHANGE_STATUS:
-      return initialState;
+    case POKEDEX_REQUEST:
+      return { ...state, status: 'loading', error: null };
+    case POKEDEX_SUCCESS:
+      return { status: 'succeeded', items: action.payload, error: null };
+    case POKEDEX_FAILURE:
+      return { ...state, status: 'failed', error: action.payload };
     default:
-      return { ...state };
+      return state;
   }
 };
 
