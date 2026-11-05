@@ -1,23 +1,25 @@
 name: Deploy to GitHub Pages
 
-# Every merge into development publishes the app to the gh-pages branch,
-# which is what GitHub Pages serves (Settings → Pages → Deploy from a branch).
+# Every merge into development builds the app and deploys it with the official
+# GitHub Pages actions (Settings → Pages → Source: GitHub Actions).
 on:
   push:
     branches: [development]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
-# Never run two deployments at the same time; the newest one wins.
+# Never run two deployments at the same time; let a running one finish.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    name: Test, build & publish
+  build:
+    name: Test & build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,13 +42,17 @@ jobs:
           # Lint already runs in its own workflow; don't fail the build on warnings.
           CI: false
 
-      - name: Publish to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
-          force_orphan: true
-          user_name: github-actions[bot]
-          user_email: 41898283+github-actions[bot]@users.noreply.github.com
-          commit_message: Deploy ${{ github.sha }}
+          path: ./build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
