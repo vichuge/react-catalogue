@@ -54,7 +54,9 @@ describe('Detail', () => {
     expect(screen.getByText('Seed Pokémon')).toBeInTheDocument();
     expect(screen.getByText('0.7 m')).toBeInTheDocument();
     expect(screen.getByText('6.9 kg')).toBeInTheDocument();
-    expect(screen.getByText('Gen I · Kanto')).toBeInTheDocument();
+    expect(screen.getByText('Gen: I Kanto')).toBeInTheDocument();
+    expect(screen.getByText('No.0001 Bulbasaur')).toBeInTheDocument();
+    expect(screen.getAllByText('grass')).toHaveLength(1);
     expect(screen.getByText('318')).toBeInTheDocument(); // stat total
     expect(screen.getByRole('link', { name: /Venusaur/ })).toHaveAttribute('href', '/pokemon/3');
     expect(screen.getByRole('link', { name: /#0002 Ivysaur/ })).toBeInTheDocument();
@@ -65,7 +67,7 @@ describe('Detail', () => {
     const shiny = screen.getByRole('button', { name: /Shiny/ });
     fireEvent.click(shiny);
     expect(shiny).toHaveAttribute('aria-pressed', 'true');
-    expect(container.querySelector('.detail__display img')).toHaveAttribute('src', 'as.gif');
+    expect(container.querySelector('.photo img')).toHaveAttribute('src', 'as.gif');
   });
 
   it('retries a failed request and offers a manual retry', async () => {

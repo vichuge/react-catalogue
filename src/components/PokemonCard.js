@@ -18,7 +18,7 @@ function PokemonCard({ id, name, types }) {
       </div>
       <h2 className="card__name">{displayName}</h2>
       <div className="card__types">
-        {types.map((t) => <TypeBadge key={t} type={t} />)}
+        {types.map((t) => <TypeBadge key={t} type={t} size="md" />)}
       </div>
     </Link>
   );

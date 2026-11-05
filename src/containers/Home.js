@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from '../components/PokemonCard';
 import Filters from '../components/Filters';
 import Icon from '../components/Icon';
+import Bezel from '../components/Bezel';
 import { changeFilter, resetFilter, loadPokedex } from '../redux/actions';
 import { filterPokemons } from '../redux/selectors';
 
@@ -133,14 +134,22 @@ function Home() {
 
   return (
     <>
-      <Filters filter={filter} onChange={onChange} onReset={onReset} />
-      {status === 'succeeded' && (
-        <p className="results-count" aria-live="polite">
-          <strong>{filtered.length}</strong>
-          {` of ${items.length} Pokémon`}
-        </p>
-      )}
-      {content}
+      <Filters
+        filter={filter}
+        onChange={onChange}
+        onReset={onReset}
+        shown={filtered.length}
+        total={status === 'succeeded' ? items.length : 0}
+      />
+      <Bezel
+        className="bezel--list"
+        onButton={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        buttonLabel="Back to top"
+        buttonText="Top"
+        buttonIcon="up"
+      >
+        {content}
+      </Bezel>
       <button
         type="button"
         className={`to-top ${showTop ? 'is-visible' : ''}`}

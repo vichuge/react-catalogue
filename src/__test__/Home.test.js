@@ -17,7 +17,7 @@ describe('Home', () => {
     expect(screen.getByText('Bulbasaur')).toBeInTheDocument();
     expect(screen.getByText('#0906')).toBeInTheDocument();
     expect(screen.getByText('Mr. Mime')).toBeInTheDocument();
-    expect(screen.getByText(/of 6 Pokémon/)).toBeInTheDocument();
+    expect(screen.getByText('Found: 6/6')).toBeInTheDocument();
   });
 
   it('filters by generation and search', () => {
@@ -26,7 +26,7 @@ describe('Home', () => {
     expect(screen.getByText('Chikorita')).toBeInTheDocument();
     expect(screen.queryByText('Bulbasaur')).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: /All National/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'All generations' }));
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'char' } });
     expect(screen.getByText('Charmander')).toBeInTheDocument();
     expect(screen.queryByText('Pikachu')).not.toBeInTheDocument();
